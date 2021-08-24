@@ -15,6 +15,10 @@ const kButtonTextStyle = TextStyle(
   fontFamily: 'Spartan MB',
 );
 
+const kSingleTextStyle = TextStyle(
+  fontSize: 30.0,
+  color: Colors.white,
+);
 const kConditionTextStyle = TextStyle(
   fontSize: 100.0,
 );
