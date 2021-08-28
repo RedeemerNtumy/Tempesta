@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tempesta/services/location.dart';
+import 'package:tempesta/services/networking.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -22,6 +23,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Network theLocation = Network();
+    theLocation.getData();
     return Scaffold();
   }
 }
