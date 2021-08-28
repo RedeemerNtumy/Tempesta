@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Network {
   void getData() async {
@@ -8,7 +9,12 @@ class Network {
     );
     if (response.statusCode == 200) {
       String data = response.body;
-      print(data);
+      var longitude = jsonDecode(data)["coord"]["lon"];
+      var latitude = jsonDecode(data)["coord"]["lat"];
+      var weatherDescription = jsonDecode(data)["weather"][0]["description"];
+      print(longitude);
+      print(latitude);
+      print(weatherDescription);
     } else {
       print(response.body);
     }
