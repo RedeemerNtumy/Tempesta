@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:tempesta/services/weather.dart';
 import 'package:tempesta/utilities/constants.dart';
+
+WeatherModel weather = WeatherModel();
 
 class LocationScreen extends StatefulWidget {
   LocationScreen(this.info);
   final info;
+
   @override
   _LocationScreenState createState() => _LocationScreenState();
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-  var temperature;
+  late int temperature;
   var condition;
   var cityName;
+  var cond;
   void initState() {
     super.initState();
     updateUI(widget.info);
   }
 
   void updateUI(dynamic weatherData) {
-    temperature = weatherData["main"]["temp"];
+    double temp = weatherData["main"]["temp"];
+    temperature = temp.toInt();
     condition = weatherData["weather"][0]["id"];
     cityName = weatherData["name"];
   }
@@ -65,7 +71,7 @@ class _LocationScreenState extends State<LocationScreen> {
                 child: Row(
                   children: <Widget>[
                     Text(
-                      "32",
+                      "$temperature°",
                       style: kTempTextStyle,
                     ),
                     Text(
@@ -78,7 +84,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
-                  "It's $condition time in $cityName",
+                  "It's $cond time in $cityName",
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),
