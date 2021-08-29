@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:tempesta/utilities/constants.dart';
 
-
 class LocationScreen extends StatefulWidget {
+  LocationScreen(this.info);
+  final info;
   @override
   _LocationScreenState createState() => _LocationScreenState();
 }
 
 class _LocationScreenState extends State<LocationScreen> {
+  var temperature;
+  var condition;
+  var cityName;
+  void initState() {
+    super.initState();
+    updateUI(widget.info);
+  }
+
+  void updateUI(dynamic weatherData) {
+    temperature = weatherData["main"]["temp"];
+    condition = weatherData["weather"][0]["id"];
+    cityName = weatherData["name"];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +65,7 @@ class _LocationScreenState extends State<LocationScreen> {
                 child: Row(
                   children: <Widget>[
                     Text(
-                      '32°',
+                      "32",
                       style: kTempTextStyle,
                     ),
                     Text(
@@ -63,7 +78,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
-                  "It's 🍦 time in San Francisco!",
+                  "It's $condition time in $cityName",
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),
@@ -75,15 +90,3 @@ class _LocationScreenState extends State<LocationScreen> {
     );
   }
 }
-
-
-
-
-
-
-
-
-  // 
-  //   var temperature = jsonDecode["main"]["temp"];
-  //   var condition = jsonDecode["weather"][0]["id"];
-  //   var cityName = jsonDecode["name"];
