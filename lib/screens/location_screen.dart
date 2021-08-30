@@ -29,6 +29,8 @@ class _LocationScreenState extends State<LocationScreen> {
     cityName = weatherData["name"];
   }
 
+  WeatherModel weatherMod = WeatherModel();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +77,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       style: kTempTextStyle,
                     ),
                     Text(
-                      '☀️',
+                      '${weatherMod.getWeatherIcon(condition)}',
                       style: kConditionTextStyle,
                     ),
                   ],
@@ -84,7 +86,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
-                  "It's $cond time in $cityName",
+                  "${weatherMod.getMessage(temperature)}",
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),
