@@ -13,7 +13,7 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-  dynamic temperature;
+  late int temperature;
   late String weatherIcon;
   late String weatherInfo;
   var cityName;
@@ -26,7 +26,9 @@ class _LocationScreenState extends State<LocationScreen> {
   void updateUI(dynamic weatherData) {
     setState(() {
       var temp = weatherData["main"]["temp"];
-      var temperature = temp.toInt();
+
+      temperature = temp.toInt();
+
       var condition = weatherData["weather"][0]["id"];
       cityName = weatherData["name"];
       weatherIcon = weatherMod.getWeatherIcon(condition);
