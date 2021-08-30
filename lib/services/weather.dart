@@ -1,4 +1,18 @@
+import 'package:tempesta/services/location.dart';
+import 'package:tempesta/utilities/constants.dart';
+import 'package:tempesta/services/networking.dart';
+
 class WeatherModel {
+  Future <dynamic> getWeatherLocation() async {
+    Location location = Location();
+    await location.getCurrentLocation();
+
+    Network network = Network(
+        'https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric');
+    var weatherData = await network.getData();
+    return weatherData;
+  }
+
   String getWeatherIcon(int condition) {
     if (condition < 300) {
       return '🌩';
