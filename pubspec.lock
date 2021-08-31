@@ -85,11 +85,7 @@ packages:
       name: geolocator
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
     version: "7.6.0"
-=======
-    version: "7.4.0"
->>>>>>> 7fba319c50cfb06dc33df8195a552137b581220f
   geolocator_android:
     dependency: transitive
     description:
@@ -103,22 +99,14 @@ packages:
       name: geolocator_apple
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
     version: "1.2.0"
-=======
-    version: "1.0.0"
->>>>>>> 7fba319c50cfb06dc33df8195a552137b581220f
   geolocator_platform_interface:
     dependency: transitive
     description:
       name: geolocator_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
     version: "2.3.4"
-=======
-    version: "2.3.2"
->>>>>>> 7fba319c50cfb06dc33df8195a552137b581220f
   geolocator_web:
     dependency: transitive
     description:

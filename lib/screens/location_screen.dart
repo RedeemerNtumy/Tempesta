@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tempesta/services/weather.dart';
 import 'package:tempesta/utilities/constants.dart';
+import 'package:tempesta/screens/city_screen.dart';
 
 WeatherModel weather = WeatherModel();
 
@@ -28,8 +29,8 @@ class _LocationScreenState extends State<LocationScreen> {
       if (weatherData == null) {
         temperature = 0;
         weatherIcon = "Error";
-        weatherInfo = "Unable to access location 😭 ";
-        cityName = "";
+        weatherInfo = "Unable to access location  ";
+        cityName = " your area 😭";
         return;
       }
       var temp = weatherData["main"]["temp"];
@@ -77,7 +78,16 @@ class _LocationScreenState extends State<LocationScreen> {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return CityScreen();
+                          },
+                        ),
+                      );
+                    },
                     child: Icon(
                       Icons.location_city,
                       size: 50.0,
