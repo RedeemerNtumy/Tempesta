@@ -24,3 +24,18 @@ const kSingleTextStyle = TextStyle(
 const kConditionTextStyle = TextStyle(
   fontSize: 100.0,
 );
+
+const kInputField = InputDecoration(
+  filled: true,
+  fillColor: Color(0xffbdbdbd),
+  icon: Icon(
+    Icons.location_city,
+    size: 35,
+  ),
+  hintText: "Check weather for this City",
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(
+      Radius.circular(20),
+    ),
+  ),
+);

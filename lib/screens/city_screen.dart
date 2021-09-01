@@ -36,18 +36,13 @@ class _CityScreenState extends State<CityScreen> {
               Container(
                 padding: EdgeInsets.all(35.0),
                 child: TextField(
-                  decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.blueGrey[200],
-                      icon: Icon(
-                        Icons.location_city,
-                        size: 35,
-                      ),
-                      hintText: "Check weather for this City",
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ))),
+                  onChanged: (value) {
+                    print(value);
+                  },
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                  decoration: kInputField,
                 ),
               ),
               TextButton(
