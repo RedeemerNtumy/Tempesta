@@ -24,7 +24,9 @@ class _CityScreenState extends State<CityScreen> {
               Align(
                 alignment: Alignment.topLeft,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   child: Icon(
                     Icons.arrow_back_ios_new_sharp,
                     size: 50.0,
@@ -35,16 +37,16 @@ class _CityScreenState extends State<CityScreen> {
                 padding: EdgeInsets.all(55.0),
                 child: null,
               ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  color: Colors.blue,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Get Weather',
-                      style: kSingleTextStyle,
-                    ),
+              SizedBox(
+                height: 10,
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Get Weather',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 40,
                   ),
                 ),
               ),
