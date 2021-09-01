@@ -34,19 +34,30 @@ class _CityScreenState extends State<CityScreen> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.all(55.0),
-                child: null,
-              ),
-              SizedBox(
-                height: 10,
+                padding: EdgeInsets.all(35.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.blueGrey[200],
+                      icon: Icon(
+                        Icons.location_city,
+                        size: 35,
+                      ),
+                      hintText: "Check weather for this City",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      ))),
+                ),
               ),
               TextButton(
                 onPressed: () {},
                 child: Text(
                   'Get Weather',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.blue,
                     fontSize: 40,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
