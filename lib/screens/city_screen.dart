@@ -41,6 +41,7 @@ class _CityScreenState extends State<CityScreen> {
                 child: TextField(
                   onChanged: (value) {
                     cityName = value;
+                    
                   },
                   style: TextStyle(
                     color: Colors.black,
@@ -49,7 +50,9 @@ class _CityScreenState extends State<CityScreen> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context,cityName);
+                },
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(30),
                   child: Container(

@@ -3,7 +3,15 @@ import 'package:tempesta/utilities/constants.dart';
 import 'package:tempesta/services/networking.dart';
 
 class WeatherModel {
-  Future <dynamic> getWeatherLocation() async {
+  Future<dynamic> getNeededWeather(String cityName) async{
+    var url =
+        "https://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=$apiKey&units=metric";
+    Network network = Network(url);
+    var cityWeather = await network.getData();
+    return cityWeather;
+  }
+
+  Future<dynamic> getWeatherLocation() async {
     Location location = Location();
     await location.getCurrentLocation();
 
