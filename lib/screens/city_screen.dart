@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:tempesta/utilities/constants.dart';
 
 class CityScreen extends StatefulWidget {
@@ -7,15 +8,17 @@ class CityScreen extends StatefulWidget {
 }
 
 class _CityScreenState extends State<CityScreen> {
+  late String cityName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/weather.jpg'),
-            fit: BoxFit.cover,
-          ),
+              image: AssetImage('images/weather.jpg'),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                  Colors.white.withOpacity(0.6), BlendMode.dstATop)),
         ),
         constraints: BoxConstraints.expand(),
         child: SafeArea(
@@ -37,7 +40,7 @@ class _CityScreenState extends State<CityScreen> {
                 padding: EdgeInsets.all(35.0),
                 child: TextField(
                   onChanged: (value) {
-                    print(value);
+                    cityName = value;
                   },
                   style: TextStyle(
                     color: Colors.black,
@@ -47,12 +50,20 @@ class _CityScreenState extends State<CityScreen> {
               ),
               TextButton(
                 onPressed: () {},
-                child: Text(
-                  'Get Weather',
-                  style: TextStyle(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: Container(
+                    width: 200,
                     color: Colors.blue,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
+                    child: Text(
+                      'Get Weather',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),
