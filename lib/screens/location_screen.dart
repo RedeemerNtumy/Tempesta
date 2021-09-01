@@ -89,7 +89,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       );
                       if (cityInput != null) {
                         var weatherData =
-                            await weatherMod.getNeededWeather(cityName);
+                            await weatherMod.getNeededWeather(cityInput);
                         updateUI(weatherData);
                       }
                     },
